@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Usando Plantillas en Flask</title>
+</head>
+<body>
+
+ <h4>Usuario...!!!</h4>
+ <h4>{{nombre}}</h4>
+ <p>{{edad}}</p>
+ {% if edad > 17 %}
+    <p>Esmayor de edad</p>
+ {% endif %}
+
+{% for  item in lista %}
+    <p>{{item}}</p>
+ {% endfor %}
+
+
+</body>
+</html>

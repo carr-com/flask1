@@ -10,15 +10,17 @@ app = Flask(__name__)
 def index():
     return "Hola mundo modificadooo "
 
-#Ruta http://localhost:9633/saluda , sin parametro
-#Ruta http://localhost:9633/saluda?parametro1=CarlosRubio con parametro
-#Ruta http://localhost:9633/saluda?parametro1=CarlosRubio&parametro2=Charly con dos patramtros
-@app.route('/saluda')
-def saluda():
-    param = request.args.get("parametro1", "Es caso de q no mande parametro, es default")
-    param2 = request.args.get("parametro2", "Es caso de q no mande parametro2, es default2")
+
+# Otra forma de parametros
+@app.route('/saluda/') # Si no manda paramtros, para que no de error
+@app.route('/saluda/<name>/')
+@app.route('/saluda/<name>/<apellido>/')
+#http://localhost:9633/saluda/Carlos/Rubio/
+@app.route('/saluda/<name>/<apellido>/<int:num>/')
+# int: valida que la entrada se aun numero
+def saluda(name= "Valor por defaul por si no manda parametros y no de error", apellido="ninguno",num=0):
     #return "Es otra ruta "
-    return "Es otra ruta con parametro {},{}".format(param,param2)
+    return "Es otra ruta con parametro {} {} {}".format(name,apellido,num)
 
 if __name__ == '__main__':
     app.run(debug=True, port=9633)
