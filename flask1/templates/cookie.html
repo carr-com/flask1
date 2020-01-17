@@ -1,0 +1,17 @@
+{% extends 'base/base_formulario.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <p>Cookie</p>
+
+
+
+        <!-- el campo csrf_token ya esta por default definido por la libreria-->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+
+
+
+
+{% endblock %}

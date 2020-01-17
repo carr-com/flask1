@@ -1,0 +1,23 @@
+{% extends 'base/base_formulario.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <p>Hola mundo con Macro</p>
+    <form name="SentMessage" id="ContactForm" method="post" >
+    {% from "_macroform.html" import render_field %}
+    {{ render_field( form.username, class="form-control") }}
+    {{ render_field( form.email, class="form-control" ) }}
+    {{ render_field( form.comment, class="form-control" ) }}
+
+    {{form.honeypot}}
+    <!-- Para ver el error, pero este campo va oculto
+    {{ render_field( form.honeypot, class="form-control" ) }}
+    -->
+
+     <p></p>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+
+{% endblock %}

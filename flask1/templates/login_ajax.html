@@ -1,12 +1,12 @@
-{% extends 'base/base_formulario.html' %}
+{% extends 'base/base_ajax.html' %}
 
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    <p>Cookie</p>
+    <p>Hola mundo con AJAX</p>
 
 
-    <form name="Login" id="LoginForm" action="/login" method="post" >
+    <form name="LoginAjax" id="LoginAjax" action="/login" method="post" >
         <!-- el campo csrf_token ya esta por default definido por la libreria-->
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
@@ -26,7 +26,8 @@
     </div>
          <div class="control-group">
     {{ render_field( form.password,  class="form-control", class="login-field", placeholder="password") }}
-    {{form.honeypot}}
+
+             <!-- {{form.honeypot}} -->
     <!-- Para ver el error, pero este campo va oculto
     {{ render_field( form.honeypot, class="form-control" ) }}
     -->
